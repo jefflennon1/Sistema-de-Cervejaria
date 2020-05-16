@@ -56,7 +56,7 @@ public class Estilo  implements Serializable {
 			return codigo;
 		}
 
-		public void setNome(Long codigo) {
+		public void setCodigo(Long codigo) {
 			this.codigo = codigo;
 		}
 		
