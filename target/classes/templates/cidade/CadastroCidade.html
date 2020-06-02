@@ -10,7 +10,7 @@
 
 <section layout:fragment="conteudo">
 
-	<div class="page-header">
+	<div class="page-header">  
 		<div class="container-fluid">
 			<h1>
 				Cadastro de cidade
@@ -19,18 +19,22 @@
 	</div>
 	
 	<div class="container-fluid">
-		<form>
+	<th:block th:include="fragments/MensagemSucessoValidacao"> </th:block>
+		<form method="post"   th:object=" ${cidade}"  class="form-vertical  js-form-loading">
+			<th:block th:include="fragments/MensagensErroValidacao"></th:block>
+		
 			<div class="row">
 				<div class="form-group  col-sm-4" >
 					<label for="estado" >Estado</label>
-					<select id="estado" class="form-control">
+					<select id="estado" class="form-control"  th:field="*{estado}">
 	                    <option value="">Selecione o estado</option>
+	                    <option  th:each="estado : ${estados}"     th:value="${estado}"   th:text="${estado.descricao}">Selecione o estado</option>
 	                </select>
 				</div>
 				
 				<div class="form-group  col-sm-8">
 					<label for="nome">Nome</label>
-					<input type="text" class="form-control" id="nome" autofocus="autofocus"/>
+					<input type="text" class="form-control" id="nome" autofocus="autofocus"    th:field="*{nome}"/>
 				</div>
 			</div>
 			

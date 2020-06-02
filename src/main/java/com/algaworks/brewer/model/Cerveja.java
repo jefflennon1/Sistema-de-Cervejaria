@@ -12,47 +12,79 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
+
+import com.algaworks.brewer.validation.Sku;
 
 @Entity
 @Table(name = "cerveja")
 public class Cerveja {
 
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
 
+	
+	@Sku
 	@NotBlank(message = "SKU é obrigatório")
 	private String sku;
 
+	
 	@NotBlank(message = "Nome é obrigatório")
 	private String nome;
 
+	
 	@Size(min = 1, max = 50, message = "O tamanho da descrição deve estar entre 1 e 50")
 	private String descricao;
 
+	
+	@NotNull(message ="É necessário informar o valor da cerveja")
+	@DecimalMin(value = "0.50", message = "O valor da cerveja deve ser maior que R$0,50")
+	@DecimalMax(value = "9999.99", message = "O valor da cerveja deve ser menor que R$9.999,99")
 	private BigDecimal valor;
 
+	
+	@NotNull(message = "É necessário informar teor Alcóolico")
+	@DecimalMax(value="100.0")
 	@Column(name = "teor_alcoolico")
 	private BigDecimal teorAlcoolico;
 
+	
+	@NotNull(message = "A comissão é obrigatória")
+	@DecimalMax(value = "999.999")
+	@DecimalMin(value = "0.01")
 	private BigDecimal comissao;
 
+	
+	@Max(value = 999999)
+	@NotNull( message = "É necessário informar pelo menos o valor de 1 no estoque")
 	@Column(name = "quantidade_estoque")
 	private Integer quantidadeEstoque;
 
+	
 	@Enumerated(EnumType.STRING)
+	@NotNull(message = "A origem é obrigatória")
 	private Origem origem;
 
+	
 	@Enumerated(EnumType.STRING)
+	@NotNull(message = "O sabor é obrigatório")
 	private Sabor sabor;
 
+	
 	@ManyToOne
 	@JoinColumn(name = "codigo_estilo")
+	@NotNull(message = "O estilo é obrigatório")
 	private Estilo estilo;
 
+	
 	public String getSku() {
 		return sku;
 	}

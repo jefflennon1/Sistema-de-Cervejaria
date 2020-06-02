@@ -16,10 +16,15 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.algaworks.brewer.model.Cerveja;
+import com.algaworks.brewer.model.Cidade;
+import com.algaworks.brewer.model.Usuario;
 import com.algaworks.brewer.repository.Cervejas;
+import com.algaworks.brewer.repository.Cidades;
+import com.algaworks.brewer.repository.Estilos;
+import com.algaworks.brewer.repository.Usuarios;
 
 @Configuration
-@EnableJpaRepositories(basePackageClasses = Cervejas.class, enableDefaultTransactions = false)
+@EnableJpaRepositories(basePackageClasses = {Cervejas.class, Cidades.class, Estilos.class, Usuarios.class}, enableDefaultTransactions = false)
 @EnableTransactionManagement
 public class JPAConfig {
 
@@ -46,6 +51,8 @@ public class JPAConfig {
 		factory.setDataSource(dataSource);
 		factory.setJpaVendorAdapter(jpaVendorAdapter);
 		factory.setPackagesToScan(Cerveja.class.getPackage().getName());
+		factory.setPackagesToScan(Cidade.class.getPackage().getName());
+		factory.setPackagesToScan(Usuario.class.getPackage().getName());
 		factory.afterPropertiesSet();
 		return factory.getObject();
 	}

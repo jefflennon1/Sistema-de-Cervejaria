@@ -1,9 +1,9 @@
 $(function(){
 	var decimal = 	$('.js-decimal');
-	decimal.maskMoney();
+	decimal.maskMoney({decimal: ','  , thousands: '.' });
 	
 	var plain = $('.js-plain');
-	plain.maskMoney({precision: 0}); //Zera as casa decimais, aqui eu quero dizer que vou aplicar número inteiro 
+	plain.maskMoney({precision: 0, thousands: '.'}); //Zera as casa decimais, aqui eu quero dizer que vou aplicar número inteiro 
 	
 //	var plain1 = $('.js-plain1');
 //	plain1.maskMoney({precision : 1});
