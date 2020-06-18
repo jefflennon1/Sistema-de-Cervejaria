@@ -55,17 +55,10 @@ public class EstilosController {
 				return ResponseEntity.badRequest().body(result.getFieldError("nome").getDefaultMessage());
 			}
 		
-			try {
+
 			estilo=	cadastroEstiloService.salvar(estilo);
-				
-			}catch (NomeEstiloJaCadastradoException e) {
-				return ResponseEntity.badRequest().body(e.getMessage());
-			}
-		 
+ 
 		 return ResponseEntity.ok(estilo);
-		// A anotação @RequestBody vai pegar o corpo da requisição e transformar no objeto ESTILO.
-		 //ResponseEntity manipula a resposta.
-		 //É necessário usar uma biblioteca auxiliar para transformar em objeto do tipo ESTILo, o spring não consegue fazer isso sozinho. A boblioteca que vou utilizar é a JACKSON (está declara no pom.xml)
-		}
+	}
 		
 }
