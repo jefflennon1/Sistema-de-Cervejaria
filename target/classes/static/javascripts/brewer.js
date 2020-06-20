@@ -1,10 +1,31 @@
+var Brewer = Brewer || {}
+
+Brewer.MaskMoney = (function(){
+	
+	function MaskMoney(){
+		this.decimal = 	$('.js-decimal');
+		this.plain = $('.js-plain');
+		
+	}
+	
+	MaskMoney.prototype.enable = function(){
+		this.decimal.maskMoney({decimal: ','  , thousands: '.' });
+		this.plain.maskMoney({precision: 0, thousands: '.'});   			
+		
+	}
+	
+	 return MaskMoney;
+}())
+
+
+
 $(function(){
-	var decimal = 	$('.js-decimal');
-	decimal.maskMoney({decimal: ','  , thousands: '.' });
+	var maskMoney = new Brewer.MaskMoney();
+	maskMoney.enable();
 	
-	var plain = $('.js-plain');
-	plain.maskMoney({precision: 0, thousands: '.'}); //Zera as casa decimais, aqui eu quero dizer que vou aplicar número inteiro 
 	
+	
+	//Zera as casa decimais, aqui eu quero dizer que vou aplicar número inteiro 	
 //	var plain1 = $('.js-plain1');
 //	plain1.maskMoney({precision : 1});
 //	

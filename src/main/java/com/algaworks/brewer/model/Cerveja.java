@@ -17,6 +17,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -27,7 +28,6 @@ import com.algaworks.brewer.validation.Sku;
 @Entity
 @Table(name = "cerveja")
 public class Cerveja {
-
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -65,8 +65,8 @@ public class Cerveja {
 	private BigDecimal comissao;
 
 	
-	@Max(value = 999999)
-	@NotNull( message = "É necessário informar pelo menos o valor de 1 no estoque")
+	@Max(value = 9999)
+	@Min( value = 1 , message = "Preencha o estoque")
 	@Column(name = "quantidade_estoque")
 	private Integer quantidadeEstoque;
 
