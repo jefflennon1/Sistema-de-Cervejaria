@@ -1,4 +1,4 @@
-Projeto feito a partir do curso SPRING FRAMEWORK EXPERt, da empresa algaworks.
+Projeto feito a partir do curso SPRING FRAMEWORK EXPERtT da empresa algaworks.
 
 
 ![](/src/main/resources/static/layout/images/cadastro_cerveja.png)
@@ -7,11 +7,10 @@ Projeto feito a partir do curso SPRING FRAMEWORK EXPERt, da empresa algaworks.
 
 ![](/src/main/resources/static/layout/images/modal.png)
 
-![](/src/main/resources/static/layout/images/estilo_existente.png)
+![](/src/main/resources/static/layout/images/estilo_existente.png) ![](/src/main/resources/static/layout/images/preencha_estilo.png)
 
-![](/src/main/resources/static/layout/images/preencha_estilo.png)
 
-![](/src/main/resources/static/layout/images/estilo_existente.png)
+
 
 ![](/src/main/resources/static/layout/images/padrao_sku.png)
 
