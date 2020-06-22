@@ -30,6 +30,7 @@ import com.algaworks.brewer.controller.CidadesController;
 import com.algaworks.brewer.controller.EstilosController;
 import com.algaworks.brewer.controller.UsuariosController;
 import com.algaworks.brewer.controller.converter.EstiloConverter;
+import com.algaworks.brewer.thymeleaf.BrewerDialect;
 
 import nz.net.ultraq.thymeleaf.LayoutDialect;
 
@@ -60,6 +61,7 @@ public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationCon
 		engine.setTemplateResolver(templateResolver());
 		
 		engine.addDialect(new LayoutDialect());
+		engine.addDialect(new BrewerDialect());
 		return engine;
 	}
 

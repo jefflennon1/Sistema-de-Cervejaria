@@ -67,6 +67,7 @@ public class Cerveja {
 	
 	@Max(value = 9999)
 	@Min( value = 1 , message = "Preencha o estoque")
+	@NotNull(message="Preencha o estoque!")
 	@Column(name = "quantidade_estoque")
 	private Integer quantidadeEstoque;
 
