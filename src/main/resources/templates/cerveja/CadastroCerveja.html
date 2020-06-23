@@ -8,7 +8,7 @@
 <head>
 	<title>Cadastro de cerveja</title>
 </head>
-
+	<link rel="stylesheet"  th:href="@{/stylesheets/vendors/upload.min.css}">
 <body>
 <section layout:fragment="conteudo">
 
@@ -36,8 +36,7 @@
 				<div class="col-sm-10  form-group"    brewer:classforerror="nome">
 					<label for="nome"  class="control-label">Nome</label>
 					<input id="nome" type="text" class="form-control"  th:field="*{nome}"/>
-				</div>
-			</div>
+				</div> 
 
 			<div class="form-group"     brewer:classforerror="descricao">
 				<label for="descricao"  class="control-label">Descrição</label>
@@ -114,8 +113,20 @@
 				</div>
 			</div>
 			
+			<div class="row">
+				<div class="form-group col-sm-12">
+					<label class="control-label">Foto</label>
+					
+					<div id="upload-drop"class="bw-upload">
+						<i class="glyphicon glyphicon-cloud-upload"></i>
+						<span>Arraste a foto aqui ou</span>
+						<a class="bw-upload-form-file">Selecione o arquivo<input id="upload-select" type="file" accept=".jpg, .jpeg, .png"></a>
+					</div>
+				</div>
+			</div>
+			
 			<div class="form-group">
-				<button class="btn  btn-primary   "      type="submit">Salvar</button>
+				<button class="btn  btn-primary "  type="submit">Salvar</button>
 			</div>
 	
 		</form>
@@ -124,8 +135,22 @@
 	<div th:replace="estilo/CadastroRapidoEstilo :: modal"></div>
 </section>
 	<th:block layout:fragment="javascript-extra">
-			<script th:src="@{/javascripts/Estilos-cadastro-rapido.js}">
-			</script>
+				<script th:src="@{/javascripts/vendors/uikit.min.js}"></script>
+				<script th:src="@{/javascripts/vendors/upload.min.js}"></script>
+				
+				<script>
+				$(function(){
+					var settings = {
+							type: 'json',
+							filelimit: 1,
+							allow: '*.(jpg|jpeg|png)'
+					};
+					
+					UIkit.uploadSelect( $('#upload-select'), settings);
+					UIkit.uploadDrop( $('#upload-drop'), settings);
+				});
+				
+				</script>
 	</th:block>
 </body>
 </html>
