@@ -1,5 +1,7 @@
 Projeto feito a partir do curso SPRING FRAMEWORK EXPERT da empresa algaworks.
 
+***** ATUALMENTE ESTE PROJETO ESTÁ PARADO, PORÉM PRETENDO REFAZÊ-LO COM A SEPARAÇÃO DE CIENTE E SERVER***
+
 
 ![](/src/main/resources/static/layout/images/cadastro_cerveja.png)
 
